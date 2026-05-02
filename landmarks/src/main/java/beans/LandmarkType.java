@@ -1,4 +1,9 @@
 package beans;
 
-public class LandmarkType {
+public enum LandmarkType {
+    MOUNTAIN,
+    WATERFALL,
+    CAVE,
+    PARK,
+    BEACH
 }
