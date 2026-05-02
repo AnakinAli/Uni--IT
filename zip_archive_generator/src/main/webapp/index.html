@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>ZIP архиви</title>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("FileList")
+                .then(response => response.text())
+                .then(data => {
+                    const filesDiv = document.getElementById("files");
+
+                    if (data.trim() === "") {
+                        filesDiv.innerHTML = "<p>Няма файлове в папката files.</p>";
+                        return;
+                    }
+
+                    const files = data.split(",");
+
+                    for (let i = 0; i < files.length; i++) {
+                        const fileName = files[i];
+
+                        const checkbox = document.createElement("input");
+                        checkbox.type = "checkbox";
+                        checkbox.name = "file";
+                        checkbox.value = fileName;
+
+                        const label = document.createElement("label");
+                        label.appendChild(checkbox);
+                        label.appendChild(document.createTextNode(" " + fileName));
+
+                        filesDiv.appendChild(label);
+                        filesDiv.appendChild(document.createElement("br"));
+                    }
+                });
+        });
+    </script>
+</head>
+<body>
+
+<h1>Генериране на ZIP архиви</h1>
+
+<hr>
+
+<h2>Задача 1: Архив с всички файлове</h2>
+
+<p>
+    Натиснете линка, за да свалите архив с всички файлове от папката
+    <strong>files</strong>.
+</p>
+
+<a href="GenereteZipArchive">Свали всички файлове</a>
+
+<hr>
+
+<h2>Задача 3: Архив само с избрани файлове</h2>
+
+<p>
+    Изберете файловете, които искате да включите в архива.
+</p>
+
+<form method="get" action="SelectiveZipArchive">
+    <div id="files"></div>
+
+    <br>
+
+    <input type="submit" value="Генерирай избран архив">
+</form>
+
+</body>
+</html>
