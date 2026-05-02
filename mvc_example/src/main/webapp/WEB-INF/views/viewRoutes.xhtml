@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head>
+    <meta charset="UTF-8"/>
+</head>
+
+<body>
+
+<h2>Разписания</h2>
+
+<ui:repeat value="#{routes}" var="route">
+
+    #{route.id} <br/>
+    #{route.from} → #{route.to} <br/>
+    #{route.departureTime} <br/>
+
+    <hr/>
+
+</ui:repeat>
+
+<a href="/mvc_example/controller/home">Назад</a>
+
+</body>
+</html>
