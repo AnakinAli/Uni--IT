@@ -1,11 +1,19 @@
 package beans;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
+@Entity
 @XmlRootElement
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String fullName;
     private int age;
     private String address;
@@ -27,6 +35,7 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
+
 
     public String getFullName() {
         return fullName;

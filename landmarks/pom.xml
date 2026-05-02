@@ -25,6 +25,39 @@
       <artifactId>modelmapper</artifactId>
       <version>3.0.0</version>
     </dependency>
+    <!-- MySql JDBC драйвър -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.20</version>
+    </dependency>
+
+    <!-- ядрото hibernate – използва се от JPA -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>7.0.0.Beta4</version>
+      <type>pom</type>
+    </dependency>
+
+
+    <!-- JPA предоставена от hibernate -->
+    <dependency>
+      <groupId>org.hibernate.orm</groupId>
+      <artifactId>hibernate-processor</artifactId>
+      <version>7.0.0.Beta4</version>
+    </dependency>
+
+
+    <!-- EJB технологията за работа с JPA -->
+    <dependency>
+      <groupId>javax.ejb</groupId>
+      <artifactId>javax.ejb-api</artifactId>
+      <version>3.2</version>
+      <scope>provided</scope>
+    </dependency>
+
+
   </dependencies>
   <build>
     <finalName>landmarks</finalName>
