@@ -11,6 +11,7 @@ import entities.Subscription;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 
 @Stateless
 public class Database {
@@ -39,6 +40,58 @@ public class Database {
 
     public void addMessage(Message msg) {
         em.persist(msg);
+    }
+
+    public List<Message> getMessagesFilteredByEmail(String filterText) {
+        TypedQuery<Message> q = em.createQuery(
+                "SELECT m FROM Message m WHERE m.email = :emailFilter",
+                Message.class
+        );
+
+        q.setParameter("emailFilter", filterText);
+
+        return q.getResultList();
+    }
+
+    public List<Message> getMessagesFilteredByName(String filterText) {
+        TypedQuery<Message> q = em.createQuery(
+                "SELECT m FROM Message m WHERE m.senderName = :nameFilter",
+                Message.class
+        );
+
+        q.setParameter("nameFilter", filterText);
+
+        return q.getResultList();
+    }
+
+    public List<Message> getMessagesFilteredByEmailWithLike(String filterText) {
+        TypedQuery<Message> q = em.createQuery(
+                "SELECT m FROM Message m WHERE m.email LIKE :emailFilter",
+                Message.class
+        );
+
+        q.setParameter("emailFilter", "%" + filterText + "%");
+
+        return q.getResultList();
+    }
+
+    public List<Message> getMessagesFilteredByNameWithLike(String filterText) {
+        TypedQuery<Message> q = em.createQuery(
+                "SELECT m FROM Message m WHERE m.senderName LIKE :nameFilter",
+                Message.class
+        );
+
+        q.setParameter("nameFilter", "%" + filterText + "%");
+
+        return q.getResultList();
+    }
+
+    public void deleteMessage(int id) {
+        Message m = em.find(Message.class, id);
+
+        if (m != null) {
+            em.remove(m);
+        }
     }
 
     public static ArrayList<Order> getOrders() {
