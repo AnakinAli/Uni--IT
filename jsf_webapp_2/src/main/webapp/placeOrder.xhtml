@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Super Mario</title>
+
+    <style>
+        input {
+            padding: 5px 10px;
+        }
+    </style>
+</h:head>
+
+<h:body style="padding:10px 200px;">
+
+    <ui:include src="header.xhtml" />
+
+    <h2>Нова Поръчка</h2>
+
+    <h:form>
+
+        <h:panelGrid columns="2">
+
+            Артикул:
+            <h:panelGroup>
+                #{orderMB.order.productName}
+                <h:inputHidden value="#{orderMB.order.productName}" />
+            </h:panelGroup>
+
+            Сума:
+            <h:panelGroup>
+                #{orderMB.order.price} лв
+                <h:inputHidden value="#{orderMB.order.price}" />
+            </h:panelGroup>
+
+            Име на получателя:
+            <h:inputText value="#{orderMB.order.clientName}" />
+
+            Адрес на получателя:
+            <h:inputText value="#{orderMB.order.address}" />
+
+            <h:inputHidden />
+            <h:commandButton value="Поръчай"
+                             action="#{orderMB.placeOrder()}" />
+
+        </h:panelGrid>
+
+    </h:form>
+
+</h:body>
+</html>

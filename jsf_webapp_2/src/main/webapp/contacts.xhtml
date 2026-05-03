@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
@@ -17,27 +16,33 @@
 
     <h2>Контакти</h2>
 
-    <h:graphicImage
-            value="resources/images/paratroopa.png"
-            style="height:80px; padding-right:10px; padding-bottom:10px; float:right;"/>
+    <h:graphicImage value="resources/images/paratroopa.png"
+                    style="height:80px; padding-right:10px; padding-bottom:10px; float:right;" />
 
-<h:form>
-    <h:panelGrid columns="2">
+    <h:form>
+        <h:panelGrid columns="2">
 
-        Име
-        <h:inputText value="#{contactMessage.name}"/>
+            Име
+            <h:inputText required="true"
+                         id="name"
+                         value="#{contacts.senderName}" />
 
-        Имейл
-        <h:inputText value="#{contactMessage.email}"/>
+            Имейл
+            <h:inputText required="true"
+                         value="#{contacts.email}" />
 
-        Текст
-        <h:inputTextarea value="#{contactMessage.text}" cols="40" rows="15"/>
+            Текст
+            <h:inputTextarea required="true"
+                             value="#{contacts.message}"
+                             cols="40"
+                             rows="15" />
 
-        <h:outputText/>
-        <h:commandButton value="Изпрати" action="#{contactMessage.send}"/>
+            <h:outputText />
+            <h:commandButton value="Изпрати"
+                             action="#{contacts.send()}" />
 
-    </h:panelGrid>
-</h:form>
+        </h:panelGrid>
+    </h:form>
 
 </h:body>
 </html>
