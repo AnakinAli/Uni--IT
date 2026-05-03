@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Поръчката е завършена</title>
+</h:head>
+
+<h:body style="padding:10px 200px;">
+
+    <ui:include src="header.xhtml"/>
+
+    <h2>Поръчката е завършена успешно</h2>
+
+    <p>
+        Избран продукт: #{orderBean.selectedProduct}
+    </p>
+
+    <p>
+        Цена: #{orderBean.price} лв.
+    </p>
+
+    <h:outputLink value="souvenir.jsf">
+        Назад към сувенирите
+    </h:outputLink>
+
+</h:body>
+</html>

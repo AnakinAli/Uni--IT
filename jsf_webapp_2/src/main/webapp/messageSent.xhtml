@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Съобщението е изпратено</title>
+</h:head>
+
+<h:body style="padding:10px 200px;">
+
+    <ui:include src="header.xhtml" />
+
+    <h2>Съобщението е изпратено успешно</h2>
+
+    <p>
+        Благодарим Ви, #{contactMessage.name}.
+    </p>
+
+    <p>
+        Ще се свържем с Вас на имейл: #{contactMessage.email}
+    </p>
+
+    <p>
+        Изпратен текст:
+    </p>
+
+    <h:panelGroup layout="block" style="border:1px solid gray; padding:10px;">
+        #{contactMessage.text}
+    </h:panelGroup>
+
+</h:body>
+</html>

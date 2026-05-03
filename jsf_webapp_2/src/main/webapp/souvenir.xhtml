@@ -29,49 +29,50 @@
 
 <h:body style="padding:10px 200px;">
 
-    <ui:include src="header.xhtml" />
+    <ui:include src="header.xhtml"/>
 
     <h2>Сувенири</h2>
 
-    <h:panelGrid columns="3" style="text-align:center;">
+    <h:form>
 
-        <h:panelGrid columns="1" cellspacing="5" rendered="true" styleClass="souvenir">
-            <h:graphicImage
-                    value="resources/images/mario_keychain.png"
-                    styleClass="souvenir_image"/>
+        <h:panelGrid columns="3" style="text-align:center;">
 
-            <h:panelGroup>Цена 1лв</h:panelGroup>
+            <h:panelGrid columns="1" cellspacing="5" rendered="true" styleClass="souvenir">
+                <h:graphicImage
+                        value="resources/images/mario_keychain.png"
+                        styleClass="souvenir_image"/>
 
-            <h:form>
-                <h:commandButton value="Закупи Марио" />
-            </h:form>
+                <h:panelGroup>Цена 1лв</h:panelGroup>
+
+                <h:commandButton value="Закупи Марио"
+                                 action="#{orderBean.buyMario}"/>
+            </h:panelGrid>
+
+            <h:panelGrid columns="1" cellspacing="5" rendered="true" styleClass="souvenir">
+                <h:graphicImage
+                        value="resources/images/luigi_keychain.png"
+                        styleClass="souvenir_image"/>
+
+                <h:panelGroup>Цена 1лв</h:panelGroup>
+
+                <h:commandButton value="Закупи Луиджи"
+                                 action="#{orderBean.buyLuigi}"/>
+            </h:panelGrid>
+
+            <h:panelGrid columns="1" cellspacing="5" rendered="true" styleClass="souvenir">
+                <h:graphicImage
+                        value="resources/images/mushroom_keychain.png"
+                        styleClass="souvenir_image"/>
+
+                <h:panelGroup>Цена 1лв</h:panelGroup>
+
+                <h:commandButton value="Закупи Гъбата"
+                                 action="#{orderBean.buyMushroom}"/>
+            </h:panelGrid>
+
         </h:panelGrid>
 
-        <h:panelGrid columns="1" cellspacing="5" rendered="true" styleClass="souvenir">
-            <h:graphicImage
-                    value="resources/images/luigi_keychain.png"
-                    styleClass="souvenir_image"/>
-
-            <h:panelGroup>Цена 1лв</h:panelGroup>
-
-            <h:form>
-                <h:commandButton value="Закупи Луиджи" />
-            </h:form>
-        </h:panelGrid>
-
-        <h:panelGrid columns="1" cellspacing="5" rendered="true" styleClass="souvenir">
-            <h:graphicImage
-                    value="resources/images/mushroom_keychain.png"
-                    styleClass="souvenir_image"/>
-
-            <h:panelGroup>Цена 1лв</h:panelGroup>
-
-            <h:form>
-                <h:commandButton value="Закупи Гъбата" />
-            </h:form>
-        </h:panelGrid>
-
-    </h:panelGrid>
+    </h:form>
 
 </h:body>
 </html>

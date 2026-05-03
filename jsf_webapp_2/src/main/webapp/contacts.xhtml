@@ -21,23 +21,23 @@
             value="resources/images/paratroopa.png"
             style="height:80px; padding-right:10px; padding-bottom:10px; float:right;"/>
 
-    <h:form>
-        <h:panelGrid columns="2">
+<h:form>
+    <h:panelGrid columns="2">
 
-            Име
-            <h:inputText/>
+        Име
+        <h:inputText value="#{contactMessage.name}"/>
 
-            Имейл
-            <h:inputText/>
+        Имейл
+        <h:inputText value="#{contactMessage.email}"/>
 
-            Текст
-            <h:inputTextarea cols="40" rows="15"/>
+        Текст
+        <h:inputTextarea value="#{contactMessage.text}" cols="40" rows="15"/>
 
-            <h:outputText/>
-            <h:commandButton value="Изпрати"/>
+        <h:outputText/>
+        <h:commandButton value="Изпрати" action="#{contactMessage.send}"/>
 
-        </h:panelGrid>
-    </h:form>
+    </h:panelGrid>
+</h:form>
 
 </h:body>
 </html>
