@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Super Mario</title>
+
+    <style>
+        .souvenir {
+            width: 100%;
+            border: 1px solid gray;
+            background: #99bbbb;
+            text-align: center;
+        }
+
+        .souvenir_image {
+            background: white;
+            height: 150px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+        }
+    </style>
+</h:head>
+
+<h:body style="padding:10px 200px;">
+
+    <ui:include src="header.xhtml" />
+
+    <h2>Сувенири</h2>
+
+    <h:panelGrid columns="3" style="text-align:center;">
+
+        <h:panelGrid columns="1" cellspacing="5" rendered="true" styleClass="souvenir">
+            <h:graphicImage
+                    value="resources/images/mario_keychain.png"
+                    styleClass="souvenir_image"/>
+
+            <h:panelGroup>Цена 1лв</h:panelGroup>
+
+            <h:form>
+                <h:commandButton value="Закупи Марио" />
+            </h:form>
+        </h:panelGrid>
+
+        <h:panelGrid columns="1" cellspacing="5" rendered="true" styleClass="souvenir">
+            <h:graphicImage
+                    value="resources/images/luigi_keychain.png"
+                    styleClass="souvenir_image"/>
+
+            <h:panelGroup>Цена 1лв</h:panelGroup>
+
+            <h:form>
+                <h:commandButton value="Закупи Луиджи" />
+            </h:form>
+        </h:panelGrid>
+
+        <h:panelGrid columns="1" cellspacing="5" rendered="true" styleClass="souvenir">
+            <h:graphicImage
+                    value="resources/images/mushroom_keychain.png"
+                    styleClass="souvenir_image"/>
+
+            <h:panelGroup>Цена 1лв</h:panelGroup>
+
+            <h:form>
+                <h:commandButton value="Закупи Гъбата" />
+            </h:form>
+        </h:panelGrid>
+
+    </h:panelGrid>
+
+</h:body>
+</html>

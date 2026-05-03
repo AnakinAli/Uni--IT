@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:head>
+        <title>Super Mario</title>
+
+        <style>
+            p {
+                margin: 0px;
+            }
+
+            p ~ p {
+                margin-top: 10px;
+                text-indent: 20px;
+            }
+        </style>
+    </h:head>
+
+    <h:body style="padding:10px 200px;">
+
+        <ui:include src="header.xhtml" />
+
+        <h2>Начало</h2>
+
+        <h:panelGroup layout="block" style="text-align:justify;">
+
+            <h:graphicImage
+                    value="resources/images/mario.png"
+                    style="height:80px; padding-right:10px; padding-bottom:10px; float:left;"/>
+
+            <p>
+                Под марката Супер Марио са издадени серия
+                от видео игри за платформата Нинтендо.
+                Различните игри проследяват приключенията
+                на Супер Марио в царството на гъбите.
+                Целта на играта е спасяването на хубавата
+                принцеса от злия крал Купа, познат още
+                като Боузър.
+            </p>
+
+            <p>
+                За да стигне до и да спаси принцесата,
+                Марио трябва да прекоси известно
+                разстояние като скача по различни
+                платформи и прескача врагове.
+            </p>
+
+            <p>
+                Първата игра от серията, наречена Супер
+                Марио Брос, е излязла през 1985 година.
+            </p>
+
+        </h:panelGroup>
+
+    </h:body>
+</html>

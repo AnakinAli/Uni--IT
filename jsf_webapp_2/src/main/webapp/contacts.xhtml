@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Super Mario</title>
+</h:head>
+
+<h:body style="padding:10px 200px;">
+
+    <ui:include src="header.xhtml" />
+
+    <h2>Контакти</h2>
+
+    <h:graphicImage
+            value="resources/images/paratroopa.png"
+            style="height:80px; padding-right:10px; padding-bottom:10px; float:right;"/>
+
+    <h:form>
+        <h:panelGrid columns="2">
+
+            Име
+            <h:inputText/>
+
+            Имейл
+            <h:inputText/>
+
+            Текст
+            <h:inputTextarea cols="40" rows="15"/>
+
+            <h:outputText/>
+            <h:commandButton value="Изпрати"/>
+
+        </h:panelGrid>
+    </h:form>
+
+</h:body>
+</html>

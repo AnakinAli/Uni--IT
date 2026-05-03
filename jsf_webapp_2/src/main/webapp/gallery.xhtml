@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Super Mario</title>
+
+    <style>
+        .mario_style {
+            background: #aaddff;
+            text-align: center;
+        }
+
+        .luigi_style {
+            background: #aaff99;
+            text-align: center;
+        }
+
+        .princess_style {
+            background: #ffff99;
+            text-align: center;
+        }
+
+        .bowser_style {
+            background: #ffbb99;
+            text-align: center;
+        }
+    </style>
+</h:head>
+
+<h:body style="padding:10px 200px;">
+
+    <ui:include src="header.xhtml" />
+
+    <h2>Галерия</h2>
+
+    <h:panelGrid cellpadding="10"
+                 columns="4"
+                 border="1"
+                 columnClasses="mario_style, luigi_style, princess_style, bowser_style">
+
+        <h:graphicImage style="height:150px;"
+                        value="resources/images/mario.png" />
+
+        <h:graphicImage style="height:150px;"
+                        value="resources/images/luigi.png" />
+
+        <h:graphicImage style="height:150px;"
+                        value="resources/images/princess_peach.png" />
+
+        <h:graphicImage style="height:150px;"
+                        value="resources/images/bowser.png" />
+
+        <h:panelGroup>Марио</h:panelGroup>
+        <h:panelGroup>Луиджи</h:panelGroup>
+        <h:panelGroup>Хубавата принцеса</h:panelGroup>
+        <h:panelGroup>Боузър</h:panelGroup>
+
+    </h:panelGrid>
+
+</h:body>
+</html>
