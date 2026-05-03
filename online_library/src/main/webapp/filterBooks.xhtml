@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>Филтриране по автор</title>
+
+    <style>
+        body {
+            padding: 20px 150px;
+            font-family: Arial, sans-serif;
+        }
+
+        input {
+            padding: 6px 10px;
+            margin: 5px;
+        }
+
+        .button {
+            padding: 6px 12px;
+        }
+    </style>
+</h:head>
+
+<h:body>
+
+    <h1>Онлайн библиотека</h1>
+    <hr/>
+
+    <h2>Филтриране на книги по автор</h2>
+
+    <h:form>
+        Автор:
+        <h:inputText value="#{books.searchedAuthor}" />
+
+        <h:commandButton
+                styleClass="button"
+                value="Търси"
+                action="#{books.filterByAuthor()}" />
+    </h:form>
+
+    <br/>
+
+    <h:outputLink value="index.jsf">
+        Назад към всички книги
+    </h:outputLink>
+
+</h:body>
+</html>

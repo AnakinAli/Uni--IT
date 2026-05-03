@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>Добавяне на книга</title>
+
+    <style>
+        body {
+            padding: 20px 150px;
+            font-family: Arial, sans-serif;
+        }
+
+        input, textarea {
+            padding: 6px 10px;
+            width: 350px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        td {
+            padding: 7px;
+        }
+
+        .button {
+            width: auto;
+            padding: 7px 14px;
+        }
+    </style>
+</h:head>
+
+<h:body>
+
+    <h1>Онлайн библиотека</h1>
+    <hr/>
+
+    <h2>Добавяне на нова книга</h2>
+
+    <h:form>
+        <h:panelGrid columns="2">
+
+            Заглавие:
+            <h:inputText value="#{books.newBook.title}" required="true" />
+
+            Автор:
+            <h:inputText value="#{books.newBook.author}" required="true" />
+
+            Жанр:
+            <h:inputText value="#{books.newBook.genre}" required="true" />
+
+            Брой страници:
+            <h:inputText value="#{books.newBook.pages}" required="true" />
+
+            Име на файл за корица:
+            <h:inputText value="#{books.newBook.image}" required="true" />
+
+            Кратка информация:
+            <h:inputTextarea value="#{books.newBook.description}" required="true" />
+
+            <h:outputText/>
+            <h:commandButton
+                    styleClass="button"
+                    value="Добави книга"
+                    action="#{books.addBook()}" />
+
+        </h:panelGrid>
+    </h:form>
+
+    <br/>
+
+    <h:outputLink value="index.jsf">
+        Назад към всички книги
+    </h:outputLink>
+
+</h:body>
+</html>

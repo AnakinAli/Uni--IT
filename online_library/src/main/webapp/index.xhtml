@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Онлайн библиотека</title>
+
+    <style>
+        body {
+            padding: 20px 150px;
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 10px;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        th {
+            background: #dddddd;
+        }
+
+        img {
+            height: 120px;
+        }
+
+        a {
+            font-weight: bold;
+            color: #003399;
+            text-decoration: none;
+        }
+    </style>
+</h:head>
+
+<h:body>
+
+    <h1>Онлайн библиотека</h1>
+    <hr/>
+    <h:outputLink value="filterBooks.jsf">
+        Филтрирай по автор
+    </h:outputLink>
+    <br/><br/>
+    <h:outputLink value="addBook.jsf">
+        Добави нова книга
+    </h:outputLink>
+    <br/><br/>
+    <h2>Списък с книги</h2>
+
+    <table>
+        <tr>
+            <th>№</th>
+            <th>Корица</th>
+            <th>Заглавие</th>
+            <th>Автор</th>
+            <th>Жанр</th>
+        </tr>
+
+        <ui:repeat value="#{books.bookList}" var="b" varStatus="status">
+            <tr>
+                <td>#{status.index}</td>
+
+                <td>
+                    <h:graphicImage value="images/#{b.image}" />
+                </td>
+
+                <td>
+                    <h:outputLink value="book.jsf">
+                        <f:param name="bookNumber" value="#{status.index}" />
+                        #{b.title}
+                    </h:outputLink>
+                </td>
+
+                <td>#{b.author}</td>
+                <td>#{b.genre}</td>
+            </tr>
+        </ui:repeat>
+    </table>
+
+</h:body>
+</html>
