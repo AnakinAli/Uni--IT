@@ -1,12 +1,17 @@
 package beans;
 
 import jakarta.enterprise.context.SessionScoped;
-import jakarta.inject.Inject;
 import jakarta.inject.Named;
-import services.BookService;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
+
+import comparators.BookAuthorComparator;
+import comparators.BookPagesAscComparator;
+import comparators.BookPagesDescComparator;
+import comparators.BookTitleAscComparator;
+import comparators.BookTitleDescComparator;
 
 @Named("books")
 @SessionScoped
@@ -16,14 +21,7 @@ public class Books implements Serializable {
 
     private static ArrayList<Book> bookList = initBooks();
 
-    private String searchedAuthor;
-
-    private ArrayList<Book> filteredBooks = new ArrayList<>();
-
-    private Book newBook = new Book();
-
-    @Inject
-    private BookService bookService;
+    private String sortType;
 
     public ArrayList<Book> getBookList() {
         return bookList;
@@ -33,40 +31,43 @@ public class Books implements Serializable {
         Books.bookList = bookList;
     }
 
-    public String getSearchedAuthor() {
-        return searchedAuthor;
+    public String getSortType() {
+        return sortType;
     }
 
-    public void setSearchedAuthor(String searchedAuthor) {
-        this.searchedAuthor = searchedAuthor;
+    public void setSortType(String sortType) {
+        this.sortType = sortType;
     }
 
-    public ArrayList<Book> getFilteredBooks() {
-        return filteredBooks;
-    }
+    public String sortBooks() {
+        if (sortType == null) {
+            return "index?faces-redirect=true";
+        }
 
-    public void setFilteredBooks(ArrayList<Book> filteredBooks) {
-        this.filteredBooks = filteredBooks;
-    }
+        switch (sortType) {
+            case "author":
+                Collections.sort(bookList, new BookAuthorComparator());
+                break;
 
-    public Book getNewBook() {
-        return newBook;
-    }
+            case "titleAsc":
+                Collections.sort(bookList, new BookTitleAscComparator());
+                break;
 
-    public void setNewBook(Book newBook) {
-        this.newBook = newBook;
-    }
+            case "titleDesc":
+                Collections.sort(bookList, new BookTitleDescComparator());
+                break;
 
-    public String filterByAuthor() {
-        filteredBooks = bookService.filterByAuthor(bookList, searchedAuthor);
+            case "pagesAsc":
+                Collections.sort(bookList, new BookPagesAscComparator());
+                break;
 
-        return "filteredBooks?faces-redirect=true";
-    }
+            case "pagesDesc":
+                Collections.sort(bookList, new BookPagesDescComparator());
+                break;
 
-    public String addBook() {
-        bookService.addBook(bookList, newBook);
-
-        newBook = new Book();
+            default:
+                break;
+        }
 
         return "index?faces-redirect=true";
     }
@@ -89,16 +90,16 @@ public class Books implements Serializable {
                 "Сатира",
                 192,
                 "bai_ganyo.jpg",
-                "Сатирична творба, представяща образа на Бай Ганьо и неговото поведение в България и Европа."
+                "Сатирична творба, която представя образа на Бай Ганьо и неговото поведение в България и Европа."
         ));
 
         books.add(new Book(
                 "Тютюн",
                 "Димитър Димов",
                 "Роман",
-                760,
-                "tutun.jpg",
-                "Роман за обществени, лични и икономически конфликти в България преди Втората световна война."
+                640,
+                "tyutyun.jpg",
+                "Роман за съдбата на семейства и личности, свързани с тютюневата индустрия."
         ));
 
         books.add(new Book(
@@ -106,8 +107,8 @@ public class Books implements Serializable {
                 "Димитър Талев",
                 "Исторически роман",
                 496,
-                "jelezniqt_svetilnik.jpg",
-                "Исторически роман за българското възраждане и борбата за духовна независимост."
+                "jelezniyat_svetilnik.jpg",
+                "Исторически роман за българското Възраждане и борбата за духовна независимост."
         ));
 
         return books;
