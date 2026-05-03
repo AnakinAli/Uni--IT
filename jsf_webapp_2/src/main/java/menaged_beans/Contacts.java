@@ -1,6 +1,7 @@
 package menaged_beans;
 
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
 import dao.Database;
@@ -9,6 +10,9 @@ import entities.Message;
 @Named
 @RequestScoped
 public class Contacts {
+
+    @Inject
+    private Database database;
 
     private String senderName;
     private String email;
@@ -43,9 +47,9 @@ public class Contacts {
 
             Message msg = new Message(senderName, email, message);
 
-            Database.addMessage(msg);
+            database.addMessage(msg);
 
-            return "sent";
+            return "sent?faces-redirect=true";
         } else {
             return "contacts";
         }

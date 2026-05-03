@@ -1,6 +1,15 @@
 package entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class Message {
+
+    @Id
+    @GeneratedValue
+    private int id;
 
     private String senderName;
     private String email;
@@ -14,6 +23,15 @@ public class Message {
         this.email = email;
         this.message = message;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
     public String getSenderName() {
         return senderName;

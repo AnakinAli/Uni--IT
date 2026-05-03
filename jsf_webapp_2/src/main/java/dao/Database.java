@@ -8,10 +8,16 @@ import entities.Message;
 import entities.Order;
 import entities.Product;
 import entities.Subscription;
+import jakarta.ejb.Stateless;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
+@Stateless
 public class Database {
 
-    private static ArrayList<Message> messages = new ArrayList<Message>();
+    @PersistenceContext(unitName = "JPADefaultDataBaseConnection")
+    private EntityManager em;
+
     private static ArrayList<Order> orders = new ArrayList<Order>();
     private static ArrayList<Product> products = initProducts();
     private static ArrayList<Subscription> subscriptions = new ArrayList<Subscription>();
@@ -26,12 +32,13 @@ public class Database {
         return products;
     }
 
-    public static ArrayList<Message> getMessages() {
-        return messages;
+    public List<Message> getMessages() {
+        return em.createQuery("SELECT m FROM Message m", Message.class)
+                .getResultList();
     }
 
-    public static void addMessage(Message msg) {
-        messages.add(msg);
+    public void addMessage(Message msg) {
+        em.persist(msg);
     }
 
     public static ArrayList<Order> getOrders() {
