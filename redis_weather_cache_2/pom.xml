@@ -35,7 +35,12 @@
       <artifactId>yasson</artifactId>
       <version>3.0.0</version>
     </dependency>
-
+    <!-- MongoDB client -->
+    <dependency>
+      <groupId>org.mongodb</groupId>
+      <artifactId>mongodb-driver-sync</artifactId>
+      <version>5.5.1</version>
+    </dependency>
   </dependencies>
 
   <build>

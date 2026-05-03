@@ -2,79 +2,52 @@ package webServices;
 
 import dao.Database;
 import entities.DayForecast;
-import jakarta.json.bind.Jsonb;
-import jakarta.json.bind.JsonbBuilder;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
-import redis.clients.jedis.Jedis;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
-@Path("forecast")
+@Path("weatherForecast")
 public class WeatherForecastService {
 
-    private ArrayList<DayForecast> getForecastWithCache() {
-        ArrayList<DayForecast> forecast;
-
-        Jedis redis = new Jedis();
-        Jsonb jsonb = JsonbBuilder.create();
-
-        if (redis.exists("weatherForecast")) {
-            String weatherForecastAsJson = redis.get("weatherForecast");
-
-            forecast = jsonb.fromJson(
-                    weatherForecastAsJson,
-                    new ArrayList<DayForecast>() {}.getClass().getGenericSuperclass()
-            );
-        } else {
-            forecast = Database.getWeatherForecast();
-
-            String weatherForecastAsJson = jsonb.toJson(forecast);
-            redis.set("weatherForecast", weatherForecastAsJson);
-        }
-
-        redis.close();
-
-        return forecast;
-    }
-
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<DayForecast> getAllForecast() {
-        return getForecastWithCache();
+    public ArrayList<DayForecast> getForecast() {
+        return Database.getWeatherForecast();
     }
 
     @GET
-    @Path("/today")
+    @Path("today")
     @Produces(MediaType.APPLICATION_JSON)
     public DayForecast getTodayForecast() {
-        ArrayList<DayForecast> forecast = getForecastWithCache();
+        ArrayList<DayForecast> forecast = Database.getWeatherForecast();
+        LocalDate today = LocalDate.now();
 
-        if (forecast.size() > 0) {
-            return forecast.get(0);
+        for (DayForecast dayForecast : forecast) {
+            if (dayForecast.getDate().equals(today)) {
+                return dayForecast;
+            }
         }
 
         return null;
     }
 
     @GET
-    @Path("/days/{count}")
+    @Path("tomorrow")
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<DayForecast> getForecastForDays(@PathParam("count") int count) {
-        ArrayList<DayForecast> forecast = getForecastWithCache();
-        ArrayList<DayForecast> result = new ArrayList<>();
+    public DayForecast getTomorrowForecast() {
+        ArrayList<DayForecast> forecast = Database.getWeatherForecast();
+        LocalDate tomorrow = LocalDate.now().plusDays(1);
 
-        if (count > forecast.size()) {
-            count = forecast.size();
+        for (DayForecast dayForecast : forecast) {
+            if (dayForecast.getDate().equals(tomorrow)) {
+                return dayForecast;
+            }
         }
 
-        for (int i = 0; i < count; i++) {
-            result.add(forecast.get(i));
-        }
-
-        return result;
+        return null;
     }
 }
