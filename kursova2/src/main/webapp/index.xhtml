@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Курсова работа 2</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px 120px;
+        }
+
+        input, select {
+            padding: 6px;
+            width: 250px;
+        }
+
+        .button {
+            width: auto;
+            padding: 8px 18px;
+            cursor: pointer;
+        }
+
+        table {
+            margin-top: 25px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background: #ddd;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</h:head>
+
+<h:body>
+
+    <h1>Курсова работа 2 - Превозни средства</h1>
+
+    <h2>Добавяне на превозно средство</h2>
+
+    <h:messages styleClass="error"/>
+
+    <h:form>
+        <h:panelGrid columns="2" cellpadding="6">
+
+            Марка и модел:
+            <h:inputText value="#{vehicleBean.vehicle.brandAndModel}" required="true"/>
+
+            Брой пътници:
+            <h:inputText value="#{vehicleBean.vehicle.passengers}" required="true">
+                <f:passThroughAttribute name="type" value="number"/>
+                <f:passThroughAttribute name="min" value="1"/>
+            </h:inputText>
+
+            Година на производство:
+            <h:inputText value="#{vehicleBean.vehicle.productionYear}" required="true">
+                <f:passThroughAttribute name="type" value="number"/>
+                <f:passThroughAttribute name="min" value="1900"/>
+                <f:passThroughAttribute name="max" value="2100"/>
+            </h:inputText>
+
+            Разход на гориво:
+            <h:inputText value="#{vehicleBean.vehicle.fuelConsumption}" required="true">
+                <f:passThroughAttribute name="type" value="number"/>
+                <f:passThroughAttribute name="step" value="0.1"/>
+                <f:passThroughAttribute name="min" value="0"/>
+            </h:inputText>
+
+            Цвят:
+            <h:inputText value="#{vehicleBean.vehicle.color}" required="true"/>
+
+            Тип скоростна кутия:
+            <h:selectOneMenu value="#{vehicleBean.vehicle.gearboxType}" required="true">
+                <f:selectItem itemValue="Ръчна" itemLabel="Ръчна"/>
+                <f:selectItem itemValue="Автоматична" itemLabel="Автоматична"/>
+            </h:selectOneMenu>
+
+            <h:outputText/>
+            <h:commandButton value="Добави" action="#{vehicleBean.addVehicle()}" styleClass="button"/>
+
+        </h:panelGrid>
+    </h:form>
+
+    <hr/>
+
+    <h2>Всички превозни средства</h2>
+
+    <h:dataTable value="#{vehicleBean.vehicles}" var="v" border="1">
+
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            #{v.id}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Марка и модел</f:facet>
+            #{v.brandAndModel}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Пътници</f:facet>
+            #{v.passengers}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Година</f:facet>
+            #{v.productionYear}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Разход</f:facet>
+            #{v.fuelConsumption}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Цвят</f:facet>
+            #{v.color}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Скоростна кутия</f:facet>
+            #{v.gearboxType}
+        </h:column>
+
+    </h:dataTable>
+
+</h:body>
+</html>

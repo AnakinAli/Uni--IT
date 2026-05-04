@@ -1,0 +1,17 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: kursova2_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kursova2
+      MYSQL_USER: kursova2
+      MYSQL_PASSWORD: kursova2
+    ports:
+      - "3306:3306"
+    volumes:
+      - kursova2_mysql_data:/var/lib/mysql
+
+volumes:
+  kursova2_mysql_data:

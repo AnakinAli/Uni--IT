@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f06a6a3-4b90-4fcf-a1db-a6ed73abf1a4" name="Changes" comment="" />
+    <list default="true" id="0ba4cfc3-3d57-4a5b-bb02-1f29ad916a86" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/Database.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Vehicle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/managed_beans/VehicleBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/beans.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ejb-jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kursova1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kursova1/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kursova1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kursova1/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,9 +48,9 @@
     <urls />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
+  "associatedIndex": 4
 }]]></component>
-  <component name="ProjectId" id="3DFtNLtdnww9IN5x7bfS1Q88XKh" />
+  <component name="ProjectId" id="3DFvWIJaipZqQjbhbC32vGuNeq4" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -43,12 +62,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "Maven.kursova1 [clean].executor": "Run",
-    "Maven.kursova1 [org.apache.tomee.maven:tomee-maven-plugin:10.1.4:run].executor": "Run",
-    "Maven.kursova1 [package].executor": "Run",
+    "Maven.kursova2 [clean].executor": "Run",
+    "Maven.kursova2 [org.apache.tomee.maven:tomee-maven-plugin:10.1.4:run].executor": "Run",
+    "Maven.kursova2 [package].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
@@ -62,6 +82,11 @@
     "nodejs_package_manager_path": "npm",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -74,12 +99,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6f06a6a3-4b90-4fcf-a1db-a6ed73abf1a4" name="Changes" comment="" />
-      <created>1777889604978</created>
+      <changelist id="0ba4cfc3-3d57-4a5b-bb02-1f29ad916a86" name="Changes" comment="" />
+      <created>1777890663264</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1777889604978</updated>
-      <workItem from="1777889606043" duration="1057000" />
+      <updated>1777890663264</updated>
+      <workItem from="1777890664279" duration="474000" />
     </task>
     <servers />
   </component>
