@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>Превозни средства</title>
+</head>
+<body>
+
+<h1>Добавяне на превозно средство</h1>
+
+<form action="AddVehicleServlet" method="post">
+    <label>
+        Марка и модел:
+        <input type="text" name="brandAndModel" required>
+    </label>
+    <br><br>
+
+    <label>
+        Брой пътници:
+        <input type="number" name="passengers" min="1" required>
+    </label>
+    <br><br>
+
+    <label>
+        Година на производство:
+        <input type="number" name="productionYear" min="1900" max="2100" required>
+    </label>
+    <br><br>
+
+    <label>
+        Разход на гориво:
+        <input type="number" name="fuelConsumption" step="0.1" min="0" required>
+    </label>
+    <br><br>
+
+    <label>
+        Цвят:
+        <input type="text" name="color" required>
+    </label>
+    <br><br>
+
+    <label>
+        Тип скоростна кутия:
+        <select name="gearboxType" required>
+            <option value="Ръчна">Ръчна</option>
+            <option value="Автоматична">Автоматична</option>
+        </select>
+    </label>
+    <br><br>
+
+    <input type="submit" value="Добави">
+</form>
+
+<hr>
+
+<h2>REST endpoints</h2>
+
+<ul>
+    <li>GET всички: <a href="webapi/vehicles">webapi/vehicles</a></li>
+    <li>GET едно по ID: <a href="webapi/vehicles/0">webapi/vehicles/0</a></li>
+</ul>
+
+</body>
+</html>
