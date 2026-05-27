@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<resources>
+
+    <Resource id="MyDataSource" type="DataSource">
+        JdbcDriver com.mysql.cj.jdbc.Driver
+        JdbcUrl jdbc:mysql://localhost:3306/exam2_1?useUnicode=yes&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC
+        UserName exam2_1
+        Password exam2_1
+        JtaManaged true
+    </Resource>
+
+</resources>

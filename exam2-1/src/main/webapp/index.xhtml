@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Регистрация на пратка</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px 120px;
+        }
+
+        input, select {
+            padding: 6px;
+            width: 250px;
+        }
+
+        .button {
+            width: auto;
+            padding: 8px 18px;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</h:head>
+
+<h:body>
+
+    <h1>Регистрация на пратка</h1>
+
+    <h:messages styleClass="error"/>
+
+    <h:form>
+        <h:panelGrid columns="2" cellpadding="6">
+
+            Номер на пратката:
+            <h:panelGroup>
+                <h:inputText id="shipmentNumber"
+                             value="#{shipmentBean.shipment.shipmentNumber}"
+                             required="true"
+                             requiredMessage="Моля, въведете номер на пратката.">
+                    <f:passThroughAttribute name="required" value="required"/>
+                </h:inputText>
+                <h:message for="shipmentNumber" styleClass="error"/>
+            </h:panelGroup>
+
+            Име на получателя:
+            <h:panelGroup>
+                <h:inputText id="recipientName"
+                             value="#{shipmentBean.shipment.recipientName}"
+                             required="true"
+                             requiredMessage="Моля, въведете име на получателя.">
+                    <f:passThroughAttribute name="required" value="required"/>
+                </h:inputText>
+                <h:message for="recipientName" styleClass="error"/>
+            </h:panelGroup>
+
+            Адрес за доставка:
+            <h:panelGroup>
+                <h:inputText id="deliveryAddress"
+                             value="#{shipmentBean.shipment.deliveryAddress}"
+                             required="true"
+                             requiredMessage="Моля, въведете адрес за доставка.">
+                    <f:passThroughAttribute name="required" value="required"/>
+                </h:inputText>
+                <h:message for="deliveryAddress" styleClass="error"/>
+            </h:panelGroup>
+
+            Наложен платеж:
+            <h:panelGroup>
+                <h:inputText id="cashOnDelivery"
+                             value="#{shipmentBean.shipment.cashOnDelivery}"
+                             required="true"
+                             requiredMessage="Моля, въведете наложен платеж.">
+                    <f:passThroughAttribute name="required" value="required"/>
+                    <f:passThroughAttribute name="type" value="number"/>
+                    <f:passThroughAttribute name="step" value="0.01"/>
+                    <f:passThroughAttribute name="min" value="0"/>
+                </h:inputText>
+                <h:message for="cashOnDelivery" styleClass="error"/>
+            </h:panelGroup>
+
+            Статус:
+            <h:panelGroup>
+                <h:selectOneMenu id="delivered"
+                                 value="#{shipmentBean.shipment.delivered}"
+                                 required="true"
+                                 requiredMessage="Моля, изберете статус.">
+                    <f:selectItem itemValue="false" itemLabel="Не"/>
+                    <f:selectItem itemValue="true" itemLabel="Да"/>
+                </h:selectOneMenu>
+                <h:message for="delivered" styleClass="error"/>
+            </h:panelGroup>
+
+            <h:outputText/>
+            <h:commandButton value="Регистрирай" action="#{shipmentBean.addShipment()}" styleClass="button"/>
+
+        </h:panelGrid>
+    </h:form>
+
+    <br/>
+    <h:outputLink value="shipments.jsf">Виж всички пратки</h:outputLink>
+
+</h:body>
+</html>

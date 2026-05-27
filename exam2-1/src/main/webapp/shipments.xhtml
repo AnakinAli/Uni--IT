@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Куриерски пратки</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px 120px;
+        }
+
+        table {
+            margin-top: 15px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background: #ddd;
+        }
+
+        .button {
+            padding: 5px 12px;
+            cursor: pointer;
+        }
+    </style>
+</h:head>
+
+<h:body>
+
+    <h1>Куриерски пратки</h1>
+
+    <h:outputLink value="index.jsf">Регистрирай нова пратка</h:outputLink>
+
+    <h2>Недоставени пратки</h2>
+
+    <h:dataTable value="#{shipmentBean.undeliveredShipments}" var="s" border="1">
+
+        <h:column>
+            <f:facet name="header">Номер</f:facet>
+            #{s.shipmentNumber}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Получател</f:facet>
+            #{s.recipientName}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Адрес</f:facet>
+            #{s.deliveryAddress}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Наложен платеж</f:facet>
+            #{s.cashOnDelivery}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Действие</f:facet>
+            <h:form>
+                <h:commandButton value="Маркирай като доставена"
+                                 action="#{shipmentBean.markAsDelivered(s.id)}"
+                                 styleClass="button"/>
+            </h:form>
+        </h:column>
+
+    </h:dataTable>
+
+    <h2>Доставени пратки</h2>
+
+    <h:dataTable value="#{shipmentBean.deliveredShipments}" var="s" border="1">
+
+        <h:column>
+            <f:facet name="header">Номер</f:facet>
+            #{s.shipmentNumber}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Получател</f:facet>
+            #{s.recipientName}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Адрес</f:facet>
+            #{s.deliveryAddress}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Наложен платеж</f:facet>
+            #{s.cashOnDelivery}
+        </h:column>
+
+    </h:dataTable>
+
+</h:body>
+</html>

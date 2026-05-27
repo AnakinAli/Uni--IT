@@ -1,0 +1,17 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: exam2_1_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: exam2_1
+      MYSQL_USER: exam2_1
+      MYSQL_PASSWORD: exam2_1
+    ports:
+      - "3306:3306"
+    volumes:
+      - exam2_1_mysql_data:/var/lib/mysql
+
+volumes:
+  exam2_1_mysql_data:
